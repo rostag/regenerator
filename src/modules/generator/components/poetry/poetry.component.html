@@ -1,0 +1,37 @@
+<div>
+    <div>
+        <input type="checkbox" [formControl]="latynizeControl" id="cb-latynize" />
+        <label for="cb-latynize">Latynize</label>
+    </div>
+    <div>
+        <label>Slovnyk: {{ dictionary.name }}, {{ dictionary.words.length }}</label>
+        <select [formControl]="dictionaryControl">
+            <option *ngFor="let dictionary of getDictionaries()" [value]="dictionary">
+                {{dictionary.name}}, {{dictionary.words.length}}
+            </option>
+        </select>
+        <button mat-button (click)="reSlovo()">re:slovo</button>
+    </div>
+    <div>
+        <label>Ryma: {{ rhyme.name }}: {{ rhyme.value }}</label>
+        <select [formControl]="rhymeControl">
+            <option *ngFor="let rhyme of getRhymes()" [value]="rhyme">
+                {{rhyme.name}}
+            </option>
+        </select>
+        <button mat-button mat-raised-button (click)="reStyle()">re:ryma</button>
+    </div>
+</div>
+
+<button mat-button color="accent" (click)="generate()" class="wrapper-button">
+    <pre class="pre-poetry">
+        <div class="strophae" *ngFor="let strophae of oOPoetry.strophae">
+            <div class="line" *ngFor="let line of strophae.lines" (click)="reline(strophae.lines, line, $event)">
+                <div>
+                    <div class="word" (click)="reword(line.words, word, $event)" *ngFor="let word of line.words">{{postProcess(word)}}&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </pre>
+    <button mat-button color="warn" (click)="copyText($event)">Copy</button>
+</button>
