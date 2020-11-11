@@ -1,3 +1,48 @@
+
+Kob / Senkan - Thu Nov 12 2020 
+
+наше 
+той знаєте 
+щастя оковита 
+свої колишнєє вміла 
+знову 
+ 
+* * *
+
+Kob / Haiku - Thu Nov 12 2020 
+
+ne bože na 
+kalyni daj svogo u 
+marko otruїv 
+ 
+* * *
+
+Kob / r1r2 - Thu Nov 12 2020 
+
+як хату 
+за квіти 
+та друга 
+і грішну 
+та очі 
+де були 
+як верхи на 
+горі 
+ 
+* * *
+
+Pyro / r1r2 - Thu Nov 12 2020 
+
+ты когда 
+я вчера 
+вы когда 
+я молвил 
+вы мясом 
+и частный 
+не денег мне 
+бога 
+ 
+* * *
+
 Poetry Samples of Generation
 
 Kob / Pyro - Sun Oct 25 2020 

@@ -4,9 +4,9 @@
         <label for="cb-latynize">Latynize</label>
     </div>
     <div>
-        <label>Slovnyk: {{ dictionary.name }}, {{ dictionary.words.length }}</label>
+        <label>Slovnyk: {{ dictionary.name }}, {{ dictionary.words.length }} </label>
         <select [formControl]="dictionaryControl">
-            <option *ngFor="let dictionary of getDictionaries()" [value]="dictionary">
+            <option *ngFor="let dictionary of getDictionaries()" [ngValue]="dictionary">
                 {{dictionary.name}}, {{dictionary.words.length}}
             </option>
         </select>
@@ -15,23 +15,19 @@
     <div>
         <label>Ryma: {{ rhyme.name }}: {{ rhyme.value }}</label>
         <select [formControl]="rhymeControl">
-            <option *ngFor="let rhyme of getRhymes()" [value]="rhyme">
+            <option *ngFor="let rhyme of getRhymes()" [ngValue]="rhyme">
                 {{rhyme.name}}
             </option>
         </select>
         <button mat-button mat-raised-button (click)="reStyle()">re:ryma</button>
+        <button mat-button color="warn" (click)="copyText()">Copy</button>
     </div>
 </div>
 
-<button mat-button color="accent" (click)="generate()" class="wrapper-button">
-    <pre class="pre-poetry">
-        <div class="strophae" *ngFor="let strophae of oOPoetry.strophae">
-            <div class="line" *ngFor="let line of strophae.lines" (click)="reline(strophae.lines, line, $event)">
-                <div>
-                    <div class="word" (click)="reword(line.words, word, $event)" *ngFor="let word of line.words">{{postProcess(word)}}&nbsp;</div>
-                </div>
-            </div>
+<pre class="pre-poetry" (click)="generate()">
+    <div class="strophae" *ngFor="let strophae of oOPoetry.strophae">
+        <div class="line" *ngFor="let line of strophae.lines" (click)="reline(strophae.lines, line, $event)">
+            <div class="word" (click)="reword(line.words, word, $event)" *ngFor="let word of line.words">{{postProcess(word)}}&nbsp;</div>
         </div>
-    </pre>
-    <button mat-button color="warn" (click)="copyText($event)">Copy</button>
-</button>
+    </div>
+</pre>

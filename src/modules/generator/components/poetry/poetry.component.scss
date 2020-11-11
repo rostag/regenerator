@@ -1,19 +1,14 @@
 :host {
 
-    .wrapper-button {
-        border-radius: 0;
-        width: 100%;
-        padding-bottom: 300px;
-    }
-
     .pre-poetry {
         text-align: left;
-        padding-left: 150px;
+        padding-left: 50px;
         font-family: Helvetica, Arial, sans-serif;
-        font-size: 50px;
         letter-spacing: -1px;
         color: #024;
         font-weight: 200;
+        cursor: pointer;
+
         &:hover {
             color: #fff;
             background-color: #024;
@@ -22,7 +17,6 @@
         &::first-letter {
             text-transform: capitalize;  
         }
-
     }
 
     // OOPO
@@ -32,10 +26,10 @@
         padding: 5px;
         border-bottom: transparent 1px dotted;
         line-height: 0px;
+        display: flex;
+        flex-direction: row;
         &:hover {
-            // border-bottom: #024 1px dotted;
-            background-color: #324;
-            color: #447;
+            background-color: #25a;
         }
     }
     

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { getRandomFromSet, getRandomWordOfGivenLength, latynize } from 'src/modules/generator/generator-helpers';
-import { dictonarySource } from '../models/poetry.model';
+import { getRandomWordOfGivenLength, latynize } from 'src/modules/generator/generator-helpers';
 import { Rhyme, Rhymes, rhymes } from '../models/rythm.models';
 import { Dictionary, Line, Poetry, PoetryService, Strophae, Word } from '../services/poetry.service';
 
@@ -85,6 +84,7 @@ export class PoetryComponent implements OnInit {
   }
 
   public generate() {
+    this.copyText();
     this.oOPoetry = this.getOPoetryObjectFromDicAndRythm();
   }
 
@@ -123,27 +123,33 @@ export class PoetryComponent implements OnInit {
     return oopo;
   };
 
-  public copyText(event: MouseEvent) {
-    event.preventDefault;
-    event.stopPropagation();
+  public copyText() {
     let val = '';
+    if (!(this.oOPoetry && this.oOPoetry.strophae) ) {
+      return;
+    }
     this.oOPoetry.strophae.forEach(strophae => strophae.lines.forEach(line => {
       line.words.forEach(word => {
         val += this.postProcess(word) + ' ';
       });
       val += '\n';
     }));
+
+    const today = new Date().toDateString();
+    const framework = this.dictionary.name + ' / ' + this.rhyme.name;
     const selBox = document.createElement('textarea');
+
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
     selBox.style.opacity = '0';
-    const today = new Date().toDateString();
-    const framework = this.dictionary.name + ' / ' + this.rhyme.name;
     selBox.value = `${framework} - ${today} \n\n${val} \n* * *\n\n`;
+
     document.body.appendChild(selBox);
+
     selBox.focus();
     selBox.select();
+
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
