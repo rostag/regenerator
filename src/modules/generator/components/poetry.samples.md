@@ -1,4 +1,33 @@
 
+Roz / r1r2 - Thu Nov 12 2020 
+
+що нами 
+все справа 
+на карту 
+на тому 
+що справа 
+до книги 
+на злочин до 
+того 
+ 
+* * *
+
+Kob / Haiku - Thu Nov 12 2020 
+
+мій таки світ 
+покрила би пору та
+тином покинуть 
+ 
+* * *
+
+Kob / Haiku - Thu Nov 12 2020 
+
+den' najde vse 
+puzata ne togo ne 
+serci svjatyly 
+ 
+* * *
+
 Kob / Senkan - Thu Nov 12 2020 
 
 наше 

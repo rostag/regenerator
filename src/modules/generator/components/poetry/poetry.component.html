@@ -1,4 +1,4 @@
-<div>
+<div class="fx-row">
     <div>
         <input type="checkbox" [formControl]="latynizeControl" id="cb-latynize" />
         <label for="cb-latynize">Latynize</label>
@@ -30,4 +30,8 @@
             <div class="word" (click)="reword(line.words, word, $event)" *ngFor="let word of line.words">{{postProcess(word)}}&nbsp;</div>
         </div>
     </div>
+</pre>
+
+<pre>// TODO
+Dynamic dictionary input - to process operative content
 </pre>
