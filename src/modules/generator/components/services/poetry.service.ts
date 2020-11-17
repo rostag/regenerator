@@ -56,20 +56,17 @@ export interface Dictionary {
 @Injectable()
 export class PoetryService {
 
-    private dictionaries: Dictionary[] = [];
+    public dictionaries: Dictionary[] = [];
 
     public setupDictionaries() {
-        this.dictionaries = [
-            this.createDictionaryFromSource(dictonarySource.kob, '\n\n', '\n', ' '),
-            this.createDictionaryFromSource(dictonarySource.mat),
-            this.createDictionaryFromSource(dictonarySource.dumyLat, '\n\n', '\n', ' ', '-'),
-            this.createDictionaryFromSource(dictonarySource.ham),
-            this.createDictionaryFromSource(dictonarySource.roz),
-            this.createDictionaryFromSource(dictonarySource.gg, '--SECTION-->'),
-            this.createDictionaryFromSource(dictonarySource.pyro),
-            this.createDictionaryFromSource(dictonarySource.numbers),
-        ]
-        return this.dictionaries;
+        this.createDictionaryFromSource(dictonarySource.kob, '\n\n', '\n', ' ');
+        this.createDictionaryFromSource(dictonarySource.mat);
+        this.createDictionaryFromSource(dictonarySource.dumyLat, '\n\n', '\n', ' ', '-');
+        this.createDictionaryFromSource(dictonarySource.ham);
+        this.createDictionaryFromSource(dictonarySource.roz);
+        this.createDictionaryFromSource(dictonarySource.gg, '--SECTION-->');
+        this.createDictionaryFromSource(dictonarySource.pyro);
+        this.createDictionaryFromSource(dictonarySource.numbers);
     }
 
     public getDictionaryByName(name: string) {
@@ -83,7 +80,7 @@ export class PoetryService {
         linesSeparator = '\n',
         wordsSeparator = ' ',
         syllablesSeparator = null,
-    ): Dictionary {
+    ) {
         const dictionaryName = dictionarySource.name;
         const multilineString = dictionarySource.value;
         const sections = multilineString.split(sectionSeparator);
@@ -110,7 +107,7 @@ export class PoetryService {
             name: dictionarySource.name,
             words: dictionaryWords,
         };
-        return this.dictionaries[dictionaryName];
+        this.dictionaries.push(this.dictionaries[dictionaryName]);
     }
 
     // public getDictionaryFromString(

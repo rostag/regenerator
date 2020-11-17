@@ -34,7 +34,8 @@ export class PoetryComponent implements OnInit {
   oOPoetry: Poetry = null;
 
   constructor(private poetryService: PoetryService) {
-    this.dictionaries = this.poetryService.setupDictionaries();
+    this.poetryService.setupDictionaries();
+    this.dictionaries = this.poetryService.dictionaries;
     this.dictionary = this.dictionaries[0];
   }
 
@@ -169,5 +170,11 @@ export class PoetryComponent implements OnInit {
 
   postProcess(word: Word): string {
     return this.latynizeControl.value ? latynize(word.wordContents) : word.wordContents;
+  }
+
+  getDictionaryFromTextarea(evt) {
+    console.log('e: ', evt.target.value); 
+    this.poetryService.createDictionaryFromSource({name: 'text', value: evt.target.value});
+    this.dictionaries = this.poetryService.dictionaries;
   }
 }
